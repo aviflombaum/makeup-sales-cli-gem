@@ -3,23 +3,21 @@ class MakeupSales::Product
   attr_accessor :title, :brand, :sale_price, :previous_price, :description  
   
   @@all = [] 
-  
+
   def initialize(title)
     @title = title 
-     @@all << self 
-     
+    @@all << self  
   end 
+
+  def title # Instance reader because it reads out of an instance variable
+    @title
+  end
   
-  def self.all 
+  def self.all  # Class Reader because it reads out of a class variable.
     @@all 
   end 
-  
-  def self.product_list
-    @@all.select{ |product| product_object.title = ""} 
-  end 
-   
-  def self.product_details
-    @@all.select{ |product| product.description = ""} 
-  end 
+
+
   
 end 
+
